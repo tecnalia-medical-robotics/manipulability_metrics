@@ -1,0 +1,4 @@
+---
+Checks:          'bugprone-*,cert-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,readability-*'
+HeaderFilterRegex: ''
+FormatStyle:     none

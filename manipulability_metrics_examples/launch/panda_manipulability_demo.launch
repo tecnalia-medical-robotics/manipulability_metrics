@@ -1,0 +1,23 @@
+<launch>
+
+  <arg name="model" default="$(find manipulability_metrics_examples)/urdf/panda.urdf.xacro" />
+  <arg name="root_link" default="panda_link0" />
+  <arg name="tip_link" default="panda_hand" />
+  <arg name="chain_joints_file" default="$(find manipulability_metrics_examples)/config/panda_joints.yaml" />
+  <arg name="zeros" default="$(find manipulability_metrics_examples)/config/panda_zeros.yaml" />
+
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
+    <rosparam param="zeros" file="$(arg zeros)" />
+  </node>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find manipulability_metrics_examples)/config/demos.rviz" required="true" />
+
+  <node name="panda_manipulability_demo" pkg="manipulability_metrics_examples" type="panda_manipulability_demo" output="screen">
+    <param name="root_link" value="$(arg root_link)" />
+    <param name="tip_link" value="$(arg tip_link)" />
+    <rosparam param="chain_joints" file="$(arg chain_joints_file)" />
+  </node>
+
+</launch>

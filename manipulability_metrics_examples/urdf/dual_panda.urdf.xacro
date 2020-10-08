@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dual_panda">
+  <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro"/>
+  <xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
+  <link name="base_link" />
+  <xacro:panda_arm arm_id="left_panda" connected_to="base_link" xyz="0 0.25 0" />
+  <xacro:hand ns="left_panda" rpy="0 0 ${-pi/4}" connected_to="left_panda_link8"/>
+  <xacro:panda_arm arm_id="right_panda" connected_to="base_link" xyz="0 -0.25 0" />
+  <xacro:hand ns="right_panda" rpy="0 0 ${-pi/4}" connected_to="right_panda_link8"/>
+</robot>

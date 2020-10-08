@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+
+  <name>manipulability_metrics</name>
+  <version>0.0.0</version>
+  <description>Utilities to compute various manipulability metrics</description>
+
+  <author email="asier.fernandez@tecnalia.com">Asier Fernandez</author>
+  <author email="miguel.prada@tecnalia.com">Miguel Prada</author>
+
+  <maintainer email="asier.fernandez@tecnalia.com">Asier Fernandez</maintainer>
+  <maintainer email="miguel.prada@tecnalia.com">Miguel Prada</maintainer>
+
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>orocos_kdl</depend>
+  <depend>kdl_parser</depend>
+  <depend>liburdfdom-headers-dev</depend>
+  <depend>eigen</depend>
+  <depend>eigen_conversions</depend>
+  <depend>visualization_msgs</depend>
+
+  <export>
+  </export>
+
+</package>

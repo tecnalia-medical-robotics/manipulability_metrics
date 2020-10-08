@@ -1,0 +1,30 @@
+<launch>
+
+  <arg name="model" default="$(find manipulability_metrics_examples)/urdf/dual_panda.urdf.xacro" />
+  <arg name="root_link" default="base_link" />
+  <arg name="left_tip_link" default="left_panda_hand" />
+  <arg name="right_tip_link" default="right_panda_hand" />
+  <arg name="left_chain_joints_file" default="$(find manipulability_metrics_examples)/config/left_panda_joints.yaml" />
+  <arg name="right_chain_joints_file" default="$(find manipulability_metrics_examples)/config/right_panda_joints.yaml" />
+  <arg name="zeros" default="$(find manipulability_metrics_examples)/config/dual_panda_zeros.yaml" />
+  <arg name="tcp_xyzypr" default="0.5 0 0.5 0 0 0" />
+
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
+    <rosparam param="zeros" file="$(arg zeros)" />
+  </node>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find manipulability_metrics_examples)/config/demos.rviz" required="true" />
+
+  <node name="tcp_frame_publisher" pkg="tf2_ros" type="static_transform_publisher" args="$(arg tcp_xyzypr) $(arg root_link) tcp_frame" />
+
+  <node name="dual_panda_manipulability_demo" pkg="manipulability_metrics_examples" type="dual_panda_manipulability_demo" output="screen">
+    <param name="root_link" value="$(arg root_link)" />
+    <param name="left_tip_link" value="$(arg left_tip_link)" />
+    <param name="right_tip_link" value="$(arg right_tip_link)" />
+    <rosparam param="left_chain_joints" file="$(arg left_chain_joints_file)" />
+    <rosparam param="right_chain_joints" file="$(arg right_chain_joints_file)" />
+  </node>
+
+</launch>
