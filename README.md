@@ -1,3 +1,4 @@
+[![GitHub Workflow Status](https://github.com/tecnalia-medical-robotics/manipulability_metrics/workflows/CI/badge.svg?branch=melodic-devel)](https://github.com/tecnalia-medical-robotics/manipulability_metrics/actions)
 [![license - apache 2.0](https://img.shields.io/:license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # Manipulability Metrics
