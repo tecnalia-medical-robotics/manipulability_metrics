@@ -9,6 +9,7 @@ jobs:
                 env:
                     - {ROS_DISTRO: melodic, ROS_REPO: testing, CMAKE_ARGS: '-DCMAKE_CXX_FLAGX="-Wall -Wextra -Wpedantic -Werror"'}
                     - {ROS_DISTRO: melodic, ROS_REPO: main, CMAKE_ARGS: '-DCMAKE_CXX_FLAGX="-Wall -Wextra -Wpedantic -Werror"'}
+                    - {CLANG_FORMAT_CHECK: file, CLANG_FORMAT_VERSION: 6.0}
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
