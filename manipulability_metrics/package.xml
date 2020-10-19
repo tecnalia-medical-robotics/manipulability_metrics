@@ -15,7 +15,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <depend>orocos_kdl</depend>
+  <depend>liborocos-kdl-dev</depend>
   <depend>kdl_parser</depend>
   <depend>liburdfdom-headers-dev</depend>
   <depend>eigen</depend>
