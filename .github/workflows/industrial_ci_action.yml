@@ -7,8 +7,8 @@ jobs:
         strategy:
             matrix:
                 env:
-                    - {ROS_DISTRO: melodic, ROS_REPO: testing}
-                    - {ROS_DISTRO: melodic, ROS_REPO: main}
+                    - {ROS_DISTRO: melodic, ROS_REPO: testing, CMAKE_ARGS: '-DCMAKE_CXX_FLAGX="-Wall -Wextra -Wpedantic -Werror"'}
+                    - {ROS_DISTRO: melodic, ROS_REPO: main, CMAKE_ARGS: '-DCMAKE_CXX_FLAGX="-Wall -Wextra -Wpedantic -Werror"'}
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
